@@ -13,4 +13,5 @@ const onPlay = function (event) {
 };
 
 player.on('timeupdate', throttle(onPlay, 1000));
+console.log(localStorage.getItem(CURRENT_PLAY_TIME));
 player.setCurrentTime(localStorage.getItem(CURRENT_PLAY_TIME));
