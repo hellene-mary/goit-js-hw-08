@@ -6,6 +6,7 @@ const player = new Player(iframe);
 const CURRENT_PLAY_TIME = 'videoplayer-current-time';
 
 player.setLoop(true);
+fromCurrentTime()
 
 const onPlay = function (event) {
     const saveTime = event.seconds;
@@ -13,5 +14,11 @@ const onPlay = function (event) {
 };
 
 player.on('timeupdate', throttle(onPlay, 1000));
-console.log(localStorage.getItem(CURRENT_PLAY_TIME));
-player.setCurrentTime(localStorage.getItem(CURRENT_PLAY_TIME));
+// console.log(localStorage.getItem(CURRENT_PLAY_TIME));
+
+function fromCurrentTime() {
+    if (localStorage.getItem(CURRENT_PLAY_TIME)) {
+        player.setCurrentTime(localStorage.getItem(CURRENT_PLAY_TIME));
+    }
+     
+}
